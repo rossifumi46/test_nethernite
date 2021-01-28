@@ -7,24 +7,24 @@
 
 <script>
 export default {
-  name: 'Item',
+  name: "Item",
   props: {
     pack: {
       type: Object,
       required: true
-    },
+    }
   }
-}
+};
 </script>
 
-<style lang='scss' scoped>
-  $primary-color: #333;
-  
-  .item {
-    border: 1px solid #000;
-    border-radius: 20px;
-    padding: 20px;
-    margin: 20px;
-    color: $primary-color;
-  }
+<style lang="scss" scoped>
+$primary-color: #333;
+
+.item {
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+  color: $primary-color;
+}
 </style>

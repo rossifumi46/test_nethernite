@@ -1,15 +1,15 @@
 <template>
   <div id="app">
     <Search />
-    <SearchResult :packs="$store.state.hits" @packClicked="handlePackClick"/>
-    <Modal v-if="isModalOpen" :onClose="handleClose" :pack="pack"/>
+    <SearchResult :packs="$store.state.hits" @packClicked="handlePackClick" />
+    <Modal v-if="isModalOpen" :onClose="handleClose" :pack="pack" />
   </div>
 </template>
 
 <script>
-import SearchResult from './components/SearchResult';
-import Search from './components/Search.vue';
-import Modal from './components/Modal';
+import SearchResult from "./components/SearchResult";
+import Search from "./components/Search.vue";
+import Modal from "./components/Modal";
 export default {
   components: {
     Search,
@@ -20,7 +20,7 @@ export default {
     return {
       isModalOpen: false,
       pack: {}
-    }
+    };
   },
   methods: {
     handleClose() {
@@ -29,10 +29,10 @@ export default {
     handlePackClick(pack) {
       this.isModalOpen = true;
       this.pack = pack;
-      console.log(pack)
+      console.log(pack);
     }
   }
-}
+};
 </script>
 
 <style>
@@ -55,5 +55,8 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+#app {
+  padding: 0 100px;
 }
 </style>

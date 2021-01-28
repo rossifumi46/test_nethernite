@@ -14,15 +14,15 @@
 </template>
 
 <script>
-import Item from './Item';
+import Item from "./Item";
 export default {
-  name: 'SearchResult',
+  name: "SearchResult",
   components: { Item },
   data() {
     return {
       plus: 1,
       minus: -1
-    }
+    };
   },
   props: {
     packs: {
@@ -31,20 +31,19 @@ export default {
     }
   },
   methods: {
-    handleClick(nextPage) { 
+    handleClick(nextPage) {
       const params = {
         query: this.$store.state.query,
         page:
-          this.$store.state.page >= 0 && this.$store.state.page < this.$store.state.pages
-          ? this.$store.state.page + nextPage
-          : this.$store.state.page,
+          this.$store.state.page >= 0 &&
+          this.$store.state.page < this.$store.state.pages
+            ? this.$store.state.page + nextPage
+            : this.$store.state.page
       };
-      this.$store.dispatch('search', params);
+      this.$store.dispatch("search", params);
     }
   }
 };
 </script>
 
-<style>
-
-</style>
+<style></style>
