@@ -31,7 +31,7 @@ export default {
 .modal-wrap {
   width: 100%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   background: rgba(0, 0, 0, 0.5);

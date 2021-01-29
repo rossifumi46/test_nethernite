@@ -29,19 +29,21 @@ export default new Vuex.Store({
     // }
   },
   mutations: {
-    SET_SEARCH_RESULTS(state, { hits, nbPages, query, page }) {
+    SET_SEARCH_RESULTS(state, { hits, nbPages, query, page, nbHits }) {
       state.hits = hits;
       state.pages = nbPages;
       state.query = query;
       state.page = page;
+      state.total = nbHits;
     }
   },
   actions: {
     search({ commit }, payload) {
       api(payload)
         .then((res) => {
-          const { hits, nbPages, query, page } = res;
-          commit('SET_SEARCH_RESULTS', { hits, nbPages, query, page });
+          console.log(res);
+          const { hits, nbPages, query, page, nbHits } = res;
+          commit('SET_SEARCH_RESULTS', { hits, nbPages, query, page, nbHits });
         })
         .catch(err => {
           console.log(err);

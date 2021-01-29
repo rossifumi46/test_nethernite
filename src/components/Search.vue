@@ -1,7 +1,12 @@
 <template>
   <div class="search">
-    <input @keyup.enter="onClickSearch" type="text" v-model="query" />
-    <button @click="onClickSearch">Поиск</button>
+    <v-text-field
+        label="Search for packages"
+        hide-details="auto"
+        @keyup.enter="onClickSearch"
+        v-model="query"
+    />
+    <v-btn @click="onClickSearch" elevation="2">Поиск</v-btn>
   </div>
 </template>
 
@@ -24,4 +29,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scope></style>
+<style lang="scss" scope>
+.search {
+  padding: 10px 0;
+  display: flex;
+  align-items: flex-end;
+}
+</style>

@@ -1,27 +1,47 @@
 <template>
-  <div class="list">
-    <Item
-      v-for="pack in packs"
-      :pack="pack"
-      :key="pack.id"
-      @click.native="$emit('packClicked', pack)"
-    />
+  <div class="table">
+    <h2>Packages number:{{ $store.state.total }}</h2>
+    <v-simple-table dark>
+      <template v-slot:default>
+        <thead>
+          <tr>
+            <th class="text-left">
+              Name
+            </th>
+            <th class="text-left">
+              Description
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="pack in packs"
+            :pack="pack"
+            :key="pack.id"
+            @click="$emit('packClicked', pack)"
+          >
+            <td>{{ pack.name }}</td>
+            <td>{{ pack.description }}</td>
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
     <div v-show="packs.length > 0" class="pages">
-      <button class="prev" @click="handleClick(minus)">prev</button>
-      <button class="next" @click="handleClick(plus)">next</button>
+      <v-btn @click="handleClick(minus)">prev</v-btn>
+      <v-btn @click="handleClick(plus)">next</v-btn>
     </div>
+    
   </div>
 </template>
 
 <script>
-import Item from "./Item";
 export default {
   name: "SearchResult",
-  components: { Item },
   data() {
     return {
       plus: 1,
-      minus: -1
+      minus: -1,
+      page: 1
     };
   },
   props: {
@@ -46,4 +66,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.pages {
+  padding: 10px;
+}
+</style>
